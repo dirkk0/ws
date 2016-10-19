@@ -130,6 +130,8 @@ var WebSocketServer = require('ws').Server
 
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
+    // use this to filter out the sender
+    // if (client !== ws) client.send(data);    
     client.send(data);
   });
 };
